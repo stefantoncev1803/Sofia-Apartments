@@ -1,0 +1,17 @@
+{% extends 'rent_website/base.html' %}
+{% block body %}
+<h1> Details for apartment  </h1>
+
+
+<img src="{{apartment.images}}" with = "500" height = "300">
+
+<div class="details" >
+<h3 style="font-family: papyrus">{{apartment.description}} <h3/>
+<h3 style="font-family: papyrus">{{apartment.type}} <h3/>
+<h3 style="font-family: papyrus">{{apartment.city}} <h3/>
+<h3 style="font-family: papyrus">{{apartment.district}} <h3/>
+<h3 style="font-family: papyrus">{{apartment.floor}}. етаж <h3/>
+<h3 style="font-family: papyrus">{{apartment.price}} лв <h3/>
+
+<div/>
+{% endblock %}

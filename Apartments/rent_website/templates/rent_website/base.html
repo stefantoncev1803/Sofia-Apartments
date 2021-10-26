@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sofia Property{% endblock %}</title>
+    <link rel="shortcut icon" type="image/png" href="{%  static 'favicon.ico' %}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Satisfy'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" type="text/css" href="{% static 'rent_website/style.css'%}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+
+        <!-- Header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'rent_website:index' %}">Sofia Property</a>
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+                <li class=""><a href="{% url 'rent_website:index' %}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp; Properties</a></li>
+                <li>
+                    <a href="{% url 'rent_website:search' %}">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;Search
+                    </a>
+                </li>
+            </ul>
+             {% if user.is_authenticated %}
+            <ul class="nav navbar-nav">
+
+                <li>
+                    <span class="" aria-hidden="true"></span>&nbsp;Hello {{username}}
+                </li>
+            </ul>
+                {%endif%}
+            <ul class="nav navbar-nav navbar-right">
+                 {% if user.is_authenticated %}
+
+                <li><a href="{% url 'rent_website:logout' %}"> Logout </a> </li>
+
+                {% else %}
+
+                <li>
+                    <a href="{% url 'rent_website:login' %}">
+                        <span class="glyphicon glyphicon-login" aria-hidden="true"></span>&nbsp;Sing in
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'rent_website:register' %}">
+                        <span class="glyphicon glyphicon-register" aria-hidden="true"></span>&nbsp; Register
+                    </a>
+                </li>
+
+                {% endif %}
+            </ul>
+        </div>
+
+    </div>
+</nav>
+{% block body %}
+{% endblock %}
+</body>
+</html>

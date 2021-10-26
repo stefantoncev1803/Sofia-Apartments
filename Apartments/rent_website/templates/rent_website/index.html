@@ -1,0 +1,27 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'rent_website/style.css'%}"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apartment list</title>
+</head>
+<body>
+{% if all_apartments %}
+    <ul style="list-style-type:none">
+        {% for apartment in all_apartments %}
+        <li>
+        <a href="{% url 'rent_website:details' apartment.id %} ">
+            <img src="{{apartment.images}}" width=400" height="170">
+            <div> {{apartment.type}} - {{apartment.city}}  </div>
+        </a>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+<h3> You don't have anything to display </h3>
+{% endif %}
+
+</body>
+</html>

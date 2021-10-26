@@ -1,0 +1,24 @@
+{% extends 'rent_website/base.html' %}
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+            {% for apartment in all_apartments %}
+                <div class="col-md-4 col-lg-2">
+                    <div class="thumbnail">
+                        <a href="{% url 'rent_website:details' apartment.id %}">
+                            <img src="{{ apartment.images }}" class="img-responsive" width="600" height="300">
+                        </a>
+                        <div class="caption">
+                            <a href="{% url 'rent_website:details' apartment.id %}">
+                            <h3>{{ apartment.type }} {{ apartment.city }}</h3>
+                                </a>
+                            <h5>{{apartment.price}} lv</h5>
+
+                        </div>
+                    </div>
+                </div>
+
+{%endfor%}
+
+        {%endblock%}

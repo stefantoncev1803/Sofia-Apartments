@@ -1,0 +1,74 @@
+{% extends 'rent_website/base.html' %}
+{% block body %}
+
+<div class="form-group">
+  <label for="sel1">Населено място:</label>
+  <select class="form-control" id="sel1">
+  <option>Банишора <option/>
+    <option>Красно село<option/>
+    <option>Сухата река<option/>
+    <option>Гео Милев<option/>
+    <option>Люлин<option/>
+    <option>Ситняково<option/>
+    <option>Красна поляна<option/>
+    <option>Сердика<option/>
+    <option>Лагера<option/>
+    <option>Зона Б-5<option/>
+    <option>Б-18<option/>
+
+    </select>
+
+</div>
+
+<div class="form-group">
+  <label for="sel1">Тип:</label>
+  <select class="form-control" id="sel1">
+  <option>Едностаен <option/>
+    <option>Двустаен<option/>
+    <option>Тристаен<option/>
+    <option>Четиристаен<option/>
+    <option>Многостаен<option/>
+    <option>Мезонет<option/>
+    <option>Ателие<option/>
+    <option>Къща<option/>
+    <option>Етаж от къща<option/>
+
+    </select>
+
+</div>
+
+<form class="form-inline">
+  <div class="form-group">
+    <label for="min_price">Минимална цена:</label>
+    <input type="text" class="form-control" id="min_price">
+  </div>
+  <div class="form-group">
+    <label for="max_price">Максимална цена:</label>
+    <input type="text" class="form-control" id="max_price">
+  </div>
+  <form/> <br> <br> <br>
+
+  <form class="form-inline">
+  <div class="form-group">
+    <label for="min_size">Минимална квадратура:</label>
+    <input type="text" class="form-control" id="min_size">
+  </div>
+  <div class="form-group">
+    <label for="max_size">Максимална квадратура:</label>
+    <input type="text" class="form-control" id="max_size">
+  </div>
+  <form/> <br> <br> <br>
+
+    <form class="form-inline">
+  <div class="form-group">
+    <label for="min_floor">Етаж от:</label>
+    <input type="text" class="form-control" id="min_floor">
+  </div>
+  <div class="form-group">
+    <label for="max_floor">Етаж до:</label>
+    <input type="text" class="form-control" id="max_floor">
+  </div>
+  <form/> <br> <br> <br>
+
+  <button type = submit> Търси  </button>
+{%endblock%}

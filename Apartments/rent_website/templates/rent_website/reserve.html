@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 4 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ <link rel="stylesheet_2" href= "static/rent_website/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <ul class = "nav justify-content-end">
+    <li class="nav-item text: white">
+      <a class="nav-link" href="{% url 'rent_website:index' %}">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'rent_website:sign_in' %}">Sing in</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#"><button class="btn btn-success" type="submit">Search</button> </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid pt-3 bg-dark text-white padding-right: 15px">
+  <div class="row">
+      <div class="col-sm">
+          {% for apartment in all_apartments %}
+          <a href="{% url 'rent_website:details' apartment.id %}">
+          <img src="{{apartment.images}}" class="rounded" width=400" height="230">
+          <p style = "font-family: cursive ; color:azure"> {{apartment.type}}  {{apartment.city}} - {{apartment.price}} lv  <p/>
+
+          {% endfor %}
+      </div>
+
+  </div>
+</div>
+
+</body>
+</html>
